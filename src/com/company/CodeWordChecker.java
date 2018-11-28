@@ -1,6 +1,6 @@
 package com.company;
 
-public class CodeWordChecker
+public class CodeWordChecker implements StringChecker
 {
     private int min;
     private int max;
@@ -11,15 +11,13 @@ public class CodeWordChecker
         this.max = max;
         this.symbol = symbol;
     }
+    @Override
     public boolean isValid(String str)
     {
-        if(min <= str.length() & str.length() <= max & !(symbol.indexOf() >= 0 ))
+        if(str.length()>=min&&str.length()<=max )
         {
-            return true;
+            return str.indexOf(symbol) == -1;
         }
-        else
-        {
             return false;
         }
     }
-}
